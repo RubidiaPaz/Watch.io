@@ -12,7 +12,7 @@ export default function App() {
        
       <Stack.Navigator>
         {/* screens */}
-        <Stack.Screen name="Login" component={HomeScreen} />
+        <Stack.Screen name="Inicio" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -7,47 +7,44 @@ import loginImages from '../assets/loginImages';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-  
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false
     })
   }, [])
   return (
-    <SafeAreaView className="h-full w-full  bg-black">
+    <SafeAreaView className="h-full w-full bg-black">
+
+      <View className="flex-row mt-10 space-x-12">
+        {/*div de camara y greyman la parte izquierda*/}
+        <View className="ml-12">
+          <View className="">
+            <Image source={loginImages.videoCamera} className="h-16 w-16" tintColor="red"/>
+          </View>
+          {/*Imagen de Spiderman */}
+          <Image source={loginImages.spiderMan} className="h-48 w-32 mt-20 rounded-xl"/>
+        </View>
+
+        {/*parte derecha*/}
+        <View className="space-y-5">
+            <Image source={loginImages.blackAdam} className="h-48 w-36 mt-2 rounded-xl"/>
+          {/*Imagen de bladeRunner */}
+          <Image source={loginImages.bladeRunner} className="h-48 w-36 rounded-xl"/>
+        </View>
+      </View>
+
+      <View className="items-center mt-10">
+        <Text className="font-bold text-3xl text-white">{`El entretemiento que 
+        tu necesitas`}</Text>
+        <Text className="font-bold text-sm text-white mt-5">{`Descarga y disfruta cuando quieras, 
+        sin conexión en todo el mundo`}</Text>
+        <View className="border-2 border-red-600 text-white font-bold py-2 px-4 rounded-full border-solid mt-5">
+          <Button title="Iniciar Sesión" color='#000000' backgroundColor= 'transparent'/>
+        </View>
+      </View>
+
       
-
-     
-        <View className="flex-row mt-10 space-x-8  ">
-          <View className="ml-5">
-             <View className=" items-center ">
-              <Image className="w-16 h-16 ml-5 mt-5" tintColor='#DC2626' source={loginImages.videoCamera}/>
-             </View>
-              <Image className="mt-20 ml-2 w-32 h-48 mb-36 rounded-xl" source={loginImages.spiderMan}/>
-          </View>
-          <View className="mt-20 w-20 h-20 space-y-5">
-              <Image className="w-36 h-48 rounded-xl" source={loginImages.blackAdam}/>
-              <Image className="w-36 h-48 rounded-xl" source={loginImages.bladeRunner}/>
-          </View>
-
-        </View>
-        <View className="items-center">
-          <Text className="text-white text-3xl font-sans font-bold">Entreteminiento lo</Text>
-          <Text className="text-white text-3xl font-sans font-bold">que tu necesitas</Text>
-          <Text className="ml-8 mr-8 text-center mt-4 text-white text-sm ">Descarga y disfruta cuando quieras sin conexion en todo el mundo</Text>
-          <View className="mt-6 border border-red-600 rounded-full">
-          <Button
-           color="#00000"
-            title="Iniciar sesion"
-            backgroundColor= 'transparent'
-            />
-          </View>
-        </View>
-
-        
-
-     
-        
 
     </SafeAreaView>
   )
