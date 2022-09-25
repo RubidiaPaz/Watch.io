@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "watch.io",
-    "slug": "watch.io",
+    "name": "watch-io",
+    "slug": "watch-io",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

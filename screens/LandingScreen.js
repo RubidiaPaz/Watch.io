@@ -14,11 +14,11 @@ const LandingScreen = () => {
     })
   }, [])
   return (
-    <SafeAreaView className="h-full w-full bg-black">
+    <SafeAreaView className="h-full w-full bg-[#171719]">
 
-      <View className="flex-row mt-10 space-x-12">
+      <View className="flex-row mt-10 space-x-10">
         {/*div de camara y greyman la parte izquierda*/}
-        <View className="ml-12">
+        <View className="ml-10">
           <View className="">
             <Image source={loginImages.videoCamera} className="h-16 w-16" tintColor="red"/>
           </View>
@@ -40,11 +40,9 @@ const LandingScreen = () => {
         <Text className="font-bold text-sm text-white mt-5">{`Descarga y disfruta cuando quieras, 
         sin conexión en todo el mundo`}</Text>
         <View className="border-2 border-red-600 text-white font-bold py-2 px-4 rounded-full border-solid mt-5">
-          <Button title="Iniciar Sesión" color='#000000' backgroundColor= 'transparent' onPress={()=>navigation.navigate('Login')}/>
+          <Button title="Iniciar Sesión" color='#171719' backgroundColor= 'transparent' onPress={()=>navigation.navigate('Login')}/>
         </View>
       </View>
-
-      
 
     </SafeAreaView>
   )
