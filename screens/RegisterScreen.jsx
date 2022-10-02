@@ -6,18 +6,19 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 
 
-const InputComponent = ({ placeholder, type, isError }) => (
+const InputComponent = ({ placeholder, type, isError, secureText = false }) => (
     <>
         <TextInput
+            className='border border-[#082EB4] rounded-2xl w-11/12 h-12 text-white mx-auto pl-5 mt-5 font-sans'
             placeholder={ placeholder }
             keyboardType={ type }
-            style={ style.input }
             placeholderTextColor={'white'}
+            secureTextEntry={secureText}
         />
         {
             isError ? (
                 <Text
-                    style = {{ color: '#640707', marginLeft: '8%', marginTop: 3 }}
+                    className='text-[#fc3f3f] ml-7 mt-1'
                 >Campo obligatorio</Text>
             ) : ('')
         }
@@ -47,7 +48,7 @@ const RegisterScreen = () => {
                     <Text className='text-white text-4xl font-sans font-bold text-center'>Registrate para iniciar tu mes gratis</Text>
                 </View>
 
-                <View className='my-7 mx-5'>
+                <View className='mt-7 mx-5'>
                     <Text className='text-white text-4xl font-sans font-bold'>Registro</Text>
                 </View>
 
@@ -55,8 +56,8 @@ const RegisterScreen = () => {
                     <InputComponent placeholder={'Correo Electronico'} type={'text'} isError={ false } />
                     <InputComponent placeholder={'Nombres'} type={'text'} isError={ false } />
                     <InputComponent placeholder={'Apellidos'} type={'text'} isError={ false } />
-                    <InputComponent placeholder={'Contraseña'} type={'text'} isError={ false } />
-                    <InputComponent placeholder={'Confirmar contraseña'} type={'text'} isError={ false } />
+                    <InputComponent placeholder={'Contraseña'} type={''} isError={ false } secureText={true} />
+                    <InputComponent placeholder={'Confirmar contraseña'} type={''} isError={ false } secureText={true}/>
                 </View>
 
                 <View>
@@ -64,11 +65,14 @@ const RegisterScreen = () => {
                         <LinearGradient
                             colors={['#082EB4', '#640707']}
                             start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
-                            style = { style.button }
+                            className='w-11/12 mx-auto h-12 my-6 border rounded-3xl justify-center align-middle'
                         >
-                            <Text
-                                style = { style.buttonText }
-                            >Registrarse</Text>
+                            <View
+                                className='bg-black rounded-3xl m-0.5 flex-auto'>
+                                <Text
+                                    className='text-white text-center text-xl m-auto'
+                                >Registrarse</Text>
+                            </View>
                         </LinearGradient>
                     </TouchableHighlight>
                 </View>
@@ -76,41 +80,4 @@ const RegisterScreen = () => {
         </SafeAreaView>
     )
 }
-
-const style = StyleSheet.create({
-    input: {
-        borderRadius: 10,
-        borderWidth: 1,
-        borderColor: '#082EB4',
-        width: '90%',
-        height: 50,
-        color: 'white',
-        marginHorizontal: '5%',
-        paddingLeft: 15,
-        marginTop: 10,
-        fontFamily: 'font-sans',
-    },
-    button: {
-        width: '90%',
-        marginHorizontal: '5%',
-        height: 45,
-        marginTop: 30,
-        borderWidth: 1,
-        borderRadius: 20,
-        justifyContent: 'center',
-    },
-    buttonText: { 
-        color: 'white',
-        textAlign: 'center',
-        textAlignVertical: 'center',
-        fontSize: 20,
-        width: '99%',
-        backgroundColor: 'black',
-        height: '96%',
-        borderRadius: 19,
-        margin: 1,
-    }
-    
-})
-
 export default RegisterScreen
