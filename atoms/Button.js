@@ -1,45 +1,25 @@
 import React from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 const ButtonComponent = ({ text, onSubmit }) => {
   return (
     <LinearGradient
       colors={["#182897", "#560E26"]}
-      style={styles.linearGradient}
+      className="rounded-[20px] w-[343px] h-[50px] mt-12"
       start={{ x: 0.0, y: 1.0 }}
       end={{ x: 1.0, y: 1.0 }}
     >
-      <TouchableOpacity style={styles.defaultButton} onPress={onSubmit}>
-        <Text style={styles.text}>{text}</Text>
+      <TouchableOpacity
+        onPress={onSubmit}
+        className="mt-0.5	ml-0.5 w-[339px] h-[45px] flex justify-items-center justify-center bg-black rounded-[20px]"
+      >
+        <Text className="text-4xl text-lg	w-32	text-white font-extrabold  text-center  w-[339px]">
+          {text}
+        </Text>
       </TouchableOpacity>
     </LinearGradient>
   );
 };
-
-const styles = StyleSheet.create({
-  defaultButton: {
-    marginLeft: 2,
-    marginTop: 2,
-    height: 45,
-    width: 339,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 20,
-    backgroundColor: "black",
-  },
-  text: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  linearGradient: {
-    borderRadius: 20,
-    marginTop: 50,
-    height: 50,
-    width: 343,
-  },
-});
 
 export default ButtonComponent;
