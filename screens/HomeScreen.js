@@ -15,9 +15,6 @@ const HomeScreen = () => {
   }, [])
   return (
     <SafeAreaView className="h-full w-full  bg-black">
-      
-
-     
         <View className="flex-row mt-10 space-x-8  ">
           <View className="ml-5">
              <View className=" items-center ">
@@ -43,12 +40,6 @@ const HomeScreen = () => {
             />
           </View>
         </View>
-
-        
-
-     
-        
-
     </SafeAreaView>
   )
 }
