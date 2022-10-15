@@ -33,9 +33,8 @@ const LoginScreen = () => {
         <View className="ml-12">
           <View className="flex-row  justify-between mr-16 items-center">
             <Image
-              source={loginImages.videoCamera}
+              source={loginImages.logobn}
               className="h-16 w-16"
-              tintColor="red"
             />
             <Text className="font-bold text-md text-white">Ayuda</Text>
           </View>

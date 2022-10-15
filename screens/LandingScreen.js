@@ -14,13 +14,13 @@ const LandingScreen = () => {
     })
   }, [])
   return (
-    <SafeAreaView className="h-full w-full bg-[#171719]">
+    <SafeAreaView className="h-full w-full  bg-[#171719]">
 
-      <View className="flex-row mt-10 space-x-10">
+      <View className="flex-row mt-20 space-x-10">
         {/*div de camara y greyman la parte izquierda*/}
         <View className="ml-10">
           <View className="">
-            <Image source={loginImages.videoCamera} className="h-16 w-16" tintColor="red"/>
+            <Image source={loginImages.logobn} className="h-16 w-16"/>
           </View>
           {/*Imagen de Spiderman */}
           <Image source={loginImages.spiderMan} className="h-48 w-32 mt-20 rounded-xl"/>
