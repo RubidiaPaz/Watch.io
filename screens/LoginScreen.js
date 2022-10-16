@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
+import {authentication} from "../firebase-config";
 import loginImages from "../assets/loginImages";
 import { Checkbox } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";

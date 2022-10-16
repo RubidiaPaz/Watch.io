@@ -20,7 +20,6 @@ const InputComponent = ({ placeholder, type, isError, secureText = false }) => (
                 >Campo obligatorio</Text>
             ) : ('')
         }
-        
     </>
 );
 

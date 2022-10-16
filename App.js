@@ -16,7 +16,7 @@ export default function App() {
   return (
     <NavigationContainer>
        
-      <Stack.Navigator initialRouteName='Inicio'>
+      <Stack.Navigator initialRouteName='LandingScreen'>
         {/* screens */}
         <Stack.Screen name="Inicio" component={LandingScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
@@ -24,7 +24,7 @@ export default function App() {
         <Stack.Screen name='Perfil' component={ProfileScreen} />
         <Stack.Screen name="pago" component={PagoScreen} />
         <Stack.Screen name="pagoExitoso" component={PagoExitosoScreen} />
-        <Stack.Screen name="selecionDePlan" component={SelecionDePlan} />
+        <Stack.Screen name="SelecionDePlan" component={SelecionDePlan} />
       </Stack.Navigator>
     </NavigationContainer>
   );
