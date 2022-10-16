@@ -25,9 +25,8 @@ const SelecionDePlan = () => {
   return (
     <SafeAreaView className="h-full w-full  bg-black">
       <Image
-        className="w-16 h-16 ml-5 mt-10"
-        tintColor="#DC2626"
-        source={loginImages.videoCamera}
+        className="w-10 h-12 ml-7 mt-10"
+        source={loginImages.logobn}
       />
       <View className="mt-5 p-5 mb-8">
         <View className="items-center">

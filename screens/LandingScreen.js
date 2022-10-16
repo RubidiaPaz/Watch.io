@@ -3,7 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import loginImages from '../assets/loginImages';
-
+import GradientButton from '../atoms/GradientButton';
+import LoginScreen from './LoginScreen';
 
 const LandingScreen = () => {
   const navigation = useNavigation();
@@ -13,6 +14,7 @@ const LandingScreen = () => {
       headerShown: false
     })
   }, [])
+
   return (
     <SafeAreaView className="h-full w-full  bg-[#171719]">
 
@@ -20,7 +22,7 @@ const LandingScreen = () => {
         {/*div de camara y greyman la parte izquierda*/}
         <View className="ml-10">
           <View className="">
-            <Image source={loginImages.logobn} className="h-16 w-16"/>
+            <Image source={loginImages.logobn} className="h-12 w-10"/>
           </View>
           {/*Imagen de Spiderman */}
           <Image source={loginImages.spiderMan} className="h-48 w-32 mt-20 rounded-xl"/>
@@ -39,9 +41,14 @@ const LandingScreen = () => {
         tu necesitas`}</Text>
         <Text className="font-bold text-sm text-white mt-5">{`Descarga y disfruta cuando quieras, 
         sin conexión en todo el mundo`}</Text>
-        <View className="border-2 border-red-600 text-white font-bold py-2 px-4 rounded-full border-solid mt-5">
+        {/*<View className="border-2 border-red-600 text-white font-bold py-2 px-4 rounded-full border-solid mt-5">
           <Button title="Iniciar Sesión" color='#171719' backgroundColor= 'transparent' onPress={()=>navigation.navigate('Login')}/>
-        </View>
+  </View>*/}
+      </View>
+
+      <View
+        className='text-white text-center text-xl mt-10'>    
+        <GradientButton text={"Iniciar Sesión"} onPressed={()=>navigation.navigate('Login')}/>      
       </View>
 
     </SafeAreaView>

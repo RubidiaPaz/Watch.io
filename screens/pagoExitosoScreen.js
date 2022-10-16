@@ -17,16 +17,15 @@ const HomeScreen = () => {
   return (
     <SafeAreaView className="h-full w-full  bg-black">
       <Image
-        className="w-16 h-16 ml-5 mt-5"
-        tintColor="#DC2626"
-        source={loginImages.videoCamera}
+        className="w-10 h-12 ml-7 mt-16"
+        source={loginImages.logobn}
       />
-      <View className="mt-5">
+      <View className="mt-12">
         <View className="items-center">
           <Title text="El pago se realizo de forma exitosa" />
         </View>
       </View>
-      <View className="items-center">
+      <View className="items-center mt-5">
         <View>
           <Image source={pagoImages.exito} />
         </View>

@@ -14,6 +14,8 @@ import {authentication} from "../firebase-config";
 import loginImages from "../assets/loginImages";
 import { Checkbox } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import GradientButton from "../atoms/GradientButton";
+import GradientButtonImage from "../atoms/GradientButtonImage";
 
 const LoginScreen = () => {
   
@@ -32,11 +34,10 @@ const LoginScreen = () => {
     <SafeAreaView className="h-full w-full bg-[#171719]">
       <View className="mt-28">
         {/*div de camara y ayuda*/}
-        <View className="ml-12">
+        <View className="ml-10">
           <View className="flex-row  justify-between mr-16 items-center">
             <Image
-              source={loginImages.logobn}
-              className="h-16 w-16"
+              source={loginImages.logobn} className="h-12 w-10"
             />
             <Text className="font-bold text-md text-white">Ayuda</Text>
           </View>
@@ -96,21 +97,17 @@ const LoginScreen = () => {
       </View>
 
       <View className="space-y-2">
-        <View>
-            {/*el touchopacity se utiliza para el boton*/}
-            <TouchableOpacity className="items-center border border-red-600 font-bold mr-10 ml-10 rounded-full mt-10"> 
-                <Text className="text-white text-lg p-1">Iniciar Sesión</Text>
-            </TouchableOpacity>
+        <View className='text-white text-center text-xl mt-10'>
+          <GradientButton text={"Ingresar"} onPressed={()=>navigation.navigate('Perfil')}/>
         </View>
+        
         <View className="items-center justify-center">
             <Text className="text-white text-xs p-1"> O continuar con </Text>
         </View>
-        <View>
-            <TouchableOpacity className="items-center border border-red-600 font-bold mr-10 ml-10 rounded-full flex-row justify-center"> 
-                <Image source={loginImages.googleLogo} className="w-5 h-5"/>
-                <Text className="text-white text-lg p-1">Iniciar Sesión</Text>
-            </TouchableOpacity>
+        <View className='text-white text-center text-xl mt-10'>
+          <GradientButtonImage text={"Iniciar Sesión"} onPressed={()=>navigation.navigate('')}/>
         </View>
+
         <Text className="text-white text-center ">
           ¿No tienes una cuenta?
           <Text

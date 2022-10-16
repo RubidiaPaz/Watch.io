@@ -3,8 +3,8 @@ const loginImages = {
     bladeRunner: require("./loginImages/bladeRunner.jpg"),
     spiderMan: require("./loginImages/spiderMan.jpg"),
     videoCamera: require("./loginImages/videoCamera.png"),
-    perfil: require("./loginImages/perfil.png"),
+    perfil: require("./loginImages/perfil.jpg"),
     googleLogo: require("./loginImages/googleLogo.png"),
-    logobn: require("./loginImages/logoW.png")
+    logobn: require("./loginImages/logoWBN.png")
    }
    export default loginImages;
