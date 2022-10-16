@@ -34,8 +34,6 @@ Antes de comenzar, asegurese de tener instaldo:
 - **Rubidia Estefany Paz Garcia** -  Programación, diseño, lógica y manuales.
 - **Salvador Alejandro González** Meléndez - Programación, diseño, lógica y manuales.
 - **Oscar Danilo Rivera Bernal** - Programación, diseño, lógica y manuales.
-- **Valeria Alexandra Cárcamo López** - Programación, diseño, lógica y manuales.
-- **Fátima Gisela Montano Pérez** - Programación, diseño, lógica y manuales.
 
 # Licencia 📋
 Este proyecto está bajo la Licencia de La MIT. Que establece:
