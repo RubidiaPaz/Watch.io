@@ -24,7 +24,7 @@ export default function App() {
         <Stack.Screen name='Perfil' component={ProfileScreen} />
         <Stack.Screen name="pago" component={PagoScreen} />
         <Stack.Screen name="pagoExitoso" component={PagoExitosoScreen} />
-        <Stack.Screen name="seleccionDePlan" component={SelecionDePlan} />
+        <Stack.Screen name="selecionDePlan" component={SelecionDePlan} />
       </Stack.Navigator>
     </NavigationContainer>
   );
