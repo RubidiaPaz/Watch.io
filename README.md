@@ -34,8 +34,6 @@ Antes de comenzar, asegurese de tener instaldo:
 - **Rubidia Estefany Paz Garcia** -  Programación, diseño, lógica y manuales.
 - **Salvador Alejandro González** Meléndez - Programación, diseño, lógica y manuales.
 - **Oscar Danilo Rivera Bernal** - Programación, diseño, lógica y manuales.
-- **Valeria Alexandra Cárcamo López** - Programación, diseño, lógica y manuales.
-- **Fátima Gisela Montano Pérez** - Programación, diseño, lógica y manuales.
 
 # Licencia 📋
 Este proyecto está bajo la Licencia de La MIT. Que establece:
@@ -64,9 +62,10 @@ SOFTWARE.
 
 # Enlaces de interés 🔍
 
-- **Tablero en Trello** https://trello.com/b/OTG58V9P/proyecto-de-catedra-dps
-- **Mockups** https://www.figma.com/file/wWnT5v1CmSyoTGDcqt2Ruw/Watch.io?node-id=0%3A1
-
+- **Tablero en Trello** - https://trello.com/b/OTG58V9P/proyecto-de-catedra-dps
+- **Mockups** - https://www.figma.com/file/wWnT5v1CmSyoTGDcqt2Ruw/Watch.io?node-id=0%3A1
+- **Manual de Usuario** - https://drive.google.com/file/d/10_ZXqXmJ2EYXLLCymx7zj7WzNq2OljuS/view?usp=sharing
+- **Manual Técnico** - https://drive.google.com/file/d/1S-aWSeXthPDDoBl7VLNl42yQuwK17Xbj/view?usp=sharing
 
 
 
