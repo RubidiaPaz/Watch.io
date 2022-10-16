@@ -1,19 +1,25 @@
 import { View, Text, SafeAreaView, Image, TextInput, StyleSheet, TouchableHighlight, ScrollView } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import loginImages from '../assets/loginImages';
 import { LinearGradient } from 'expo-linear-gradient';
+import ButtonComponent from '../atoms/Button';
+import GradientButton from '../atoms/GradientButton';
+import {authentication} from "../firebase-config"
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 
 
-const InputComponent = ({ placeholder, type, isError, secureText = false }) => (
+const InputComponent = ({ placeholder, type, isError,value, onChangeText, secureText = false }) => (
     <>
-        <TextInput
+        <TextInput 
             className='border border-[#082EB4] rounded-2xl w-11/12 h-12 text-white mx-auto pl-5 mt-5 font-sans'
             placeholder={ placeholder }
             keyboardType={ type }
             placeholderTextColor={'white'}
             secureTextEntry={secureText}
+            value={value}
+            onChangeText={onChangeText}
         />
         {
             isError ? (
@@ -28,7 +34,26 @@ const InputComponent = ({ placeholder, type, isError, secureText = false }) => (
 
 const RegisterScreen = () => {  
     const navigation = useNavigation();
-  
+    
+    const [userEmail, setUserEmail] = useState("");
+    const [firstNames, setFirstNames] = useState("");
+    const [lastNames, setLastNames] = useState("");
+    const [userPassword, setUserPassword] = useState("");
+    const [userPasswordConfirm, setUserPasswordConfirm] = useState("");
+
+    // se registra el usuario 
+    const RegisterUser= () =>{
+        if (userPassword===userPasswordConfirm) {
+            createUserWithEmailAndPassword (authentication,userEmail,userPassword)
+        .then(()=>{
+            console.log(response);
+        })
+        .catch((response)=>{
+            console.log(response)
+        })
+        }
+    }
+
     useLayoutEffect(() => {
         navigation.setOptions({
         headerShown: false
@@ -36,7 +61,7 @@ const RegisterScreen = () => {
     }, []);
 
     return (
-        <SafeAreaView className='h-full w-full bg-black'>
+        <SafeAreaView className='h-full w-full bg-[#171719]'>
             <ScrollView>
                 <View className='flex-row mt-3'>
                     <View className='ml-5'>
@@ -53,28 +78,15 @@ const RegisterScreen = () => {
                 </View>
 
                 <View className='form-control'>
-                    <InputComponent placeholder={'Correo Electronico'} type={'text'} isError={ false } />
-                    <InputComponent placeholder={'Nombres'} type={'text'} isError={ false } />
-                    <InputComponent placeholder={'Apellidos'} type={'text'} isError={ false } />
-                    <InputComponent placeholder={'Contraseña'} type={''} isError={ false } secureText={true} />
-                    <InputComponent placeholder={'Confirmar contraseña'} type={''} isError={ false } secureText={true}/>
+                    <InputComponent placeholder={'Correo Electronico'} value={userEmail} onChangeText={(userEmail) => setUserEmail(userEmail)} type={'email-address'} isError={ false } />
+                    <InputComponent placeholder={'Nombres'} type={'text'} value={firstNames} onChangeText={(firstNames) => setFirstNames(firstNames)} isError={ false } />
+                    <InputComponent placeholder={'Apellidos'} type={'text'} value={lastNames} onChangeText={(lastNames) => setLastNames(lastNames)} isError={ false } />
+                    <InputComponent placeholder={'Contraseña'} type={''}  value={userPassword} onChangeText={(userPassword) => setUserPassword(userPassword)} isError={ false } secureText={true} />
+                    <InputComponent placeholder={'Confirmar contraseña'}  value={userPasswordConfirm} onChangeText={(userPasswordConfirm) => setUserPasswordConfirm(userPasswordConfirm)} type={''} isError={ false } secureText={true}/>
                 </View>
 
-                <View>
-                    <TouchableHighlight>
-                        <LinearGradient
-                            colors={['#082EB4', '#640707']}
-                            start={{x: 0.0, y: 1.0}} end={{x: 1.0, y: 1.0}}
-                            className='w-11/12 mx-auto h-12 my-6 border rounded-3xl justify-center align-middle'
-                        >
-                            <View
-                                className='bg-black rounded-3xl m-0.5 flex-auto'>
-                                <Text
-                                    className='text-white text-center text-xl m-auto'
-                                >Registrarse</Text>
-                            </View>
-                        </LinearGradient>
-                    </TouchableHighlight>
+                <View className="mt-10 border-white  h-10">
+                   <GradientButton text={"Registrarse"} onPressed={RegisterUser}/>
                 </View>
             </ScrollView>
         </SafeAreaView>
