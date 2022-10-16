@@ -36,7 +36,7 @@ const ProfileScreen = () => {
 
                     <View
                         className='text-white text-center text-xl mt-36'>
-                        <GradientButton text={"Ingresar"} onPressed={()=>navigation.navigate('')}/>
+                        <GradientButton text={"Administrar Perfil"} onPressed={()=>navigation.navigate('')}/>
                     </View>
                 </View>
         </SafeAreaView>
