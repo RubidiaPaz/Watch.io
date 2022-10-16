@@ -64,7 +64,8 @@ SOFTWARE.
 
 - **Tablero en Trello** https://trello.com/b/OTG58V9P/proyecto-de-catedra-dps
 - **Mockups** https://www.figma.com/file/wWnT5v1CmSyoTGDcqt2Ruw/Watch.io?node-id=0%3A1
-
+- **Manual de Usuario** - https://drive.google.com/file/d/10_ZXqXmJ2EYXLLCymx7zj7WzNq2OljuS/view?usp=sharing
+- **Manual Técnico** - https://drive.google.com/file/d/1S-aWSeXthPDDoBl7VLNl42yQuwK17Xbj/view?usp=sharing
 
 
 
