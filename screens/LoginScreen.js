@@ -16,6 +16,7 @@ import { Checkbox } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
+  
   const navigation = useNavigation();
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -50,6 +51,7 @@ const LoginScreen = () => {
         <View className="items-center mt-10 px-8">
           <TextInput
             onChangeText={(userEmail) => setUserEmail(userEmail)}
+            value={userEmail}
             className="w-full border border-[#082eb4] p-2 rounded-xl"
             placeholder="Correo Electrónico"
             color="white"
@@ -65,7 +67,8 @@ const LoginScreen = () => {
         <View className="items-center mt-10 px-8">
           <TextInput
             className="w-full border border-[#082EB4]  p-2 rounded-xl "
-            onChangeText={(UserPassword) => setUserPassword(UserPassword)}
+            onChangeText={(userPassword) => setUserEmail(userPassword)}
+            value={userPassword}
             placeholder="Contraseña" //12345
             placeholderTextColor="#8b9cb5"
             keyboardType="default"
@@ -108,11 +111,16 @@ const LoginScreen = () => {
                 <Text className="text-white text-lg p-1">Iniciar Sesión</Text>
             </TouchableOpacity>
         </View>
-        <Text className="text-white text-center">¿No tienes una cuenta?
-            <Text 
-            // onPress={}
-             style={{fontWeight: "bold"}}>  Registrate aquí</Text>
-            </Text>
+        <Text className="text-white text-center ">
+          ¿No tienes una cuenta?
+          <Text
+            onPress={()=>navigation.navigate('Registro')}
+            style={{ fontWeight: "bold" }}
+          >
+            {" "}
+            Registrate aquí
+          </Text>
+        </Text>
       </View>
     </SafeAreaView>
   );
