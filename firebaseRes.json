@@ -1,0 +1,74 @@
+
+UserCredentialImpl {
+    "_tokenResponse": Object {
+      "email": "paz@horchta.sv",
+      "expiresIn": "3600",
+      "idToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVkMzQwZGRiYzNjNWJhY2M0Y2VlMWZiOWQxNmU5ODM3ZWM2MTYzZWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vd2F0Y2hpby02NTk4MSIsImF1ZCI6IndhdGNoaW8tNjU5ODEiLCJhdXRoX3RpbWUiOjE2NjU5NTE3MTAsInVzZXJfaWQiOiJvZ3JnU1RVVkdlZ2t4azRkNGJFNndFMlJKQjkyIiwic3ViIjoib2dyZ1NUVVZHZWdreGs0ZDRiRTZ3RTJSSkI5MiIsImlhdCI6MTY2NTk1MTcxMCwiZXhwIjoxNjY1OTU1MzEwLCJlbWFpbCI6InBhekBob3JjaHRhLnN2IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInBhekBob3JjaHRhLnN2Il19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.RVZPa-QHcXqp_fViONu09yn0Rnc_uHQAdy0DJsVDst6Yp7R0kcz629Ux76-BBCsmdynOSIpjnXtufq0p9olzlWjqloTcCGSYRLVIzigPWsZ23ngZ1diDpDvTxcBRJ2brko3Wf1lGOoZ7k_L8WyTq3z8sCmTRBdP-94_Rc9zuAt_bxE2ivDe2O3t70xNB8LEfV8YvlNS6aM_RHQXQ6s7TGHY2q5_wOjSlUTx-MHFaWxMBTYo--m9YjBcP1g8cL4dtojYqvN8m9WkjQcMyB6R7g-Ai3qgsmR4apfJF7p-dw1FXQOU6SFuVPOFnY4TixtYma6vxAqrwLVpxUkCoi8xfJw",
+      "kind": "identitytoolkit#SignupNewUserResponse",
+      "localId": "ogrgSTUVGegkxk4d4bE6wE2RJB92",
+      "refreshToken": "AOEOulZ5ATxUeXYsI8B8bkxNd5uTROYp1kGB5Ykgd8GK5sCFc3-gNW8vL6bRUnKkRJBK3j6idut3s_04EdczqIWtlVD37WhjV9tPeIfo_AvqR7agjzIp3A1WrpZam-aBm-4fNkq9HHNFUY3bVJvydYZUXadXFakx_O8XCKGyMM47mkwu0pDHL7oUpe5KsHTi9Ub5biqtuAjE",
+    },
+    "operationType": "signIn",
+    "providerId": null,
+    "user": Object {
+      "_redirectEventId": undefined,
+      "apiKey": "AIzaSyDcnfV13gRBuvKbKjl5sXBOn0P32Sf0188",
+      "appName": "[DEFAULT]",
+      "createdAt": "1665951710252",
+      "displayName": undefined,
+      "email": "paz@horchta.sv",
+      "emailVerified": false,
+      "isAnonymous": false,
+      "lastLoginAt": "1665951710252",
+      "phoneNumber": undefined,
+      "photoURL": undefined,
+      "providerData": Array [
+        Object {
+          "displayName": null,
+          "email": "paz@horchta.sv",
+          "phoneNumber": null,
+          "photoURL": null,
+          "providerId": "password",
+          "uid": "paz@horchta.sv",
+        },
+      ],
+      "stsTokenManager": Object {
+        "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVkMzQwZGRiYzNjNWJhY2M0Y2VlMWZiOWQxNmU5ODM3ZWM2MTYzZWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vd2F0Y2hpby02NTk4MSIsImF1ZCI6IndhdGNoaW8tNjU5ODEiLCJhdXRoX3RpbWUiOjE2NjU5NTE3MTAsInVzZXJfaWQiOiJvZ3JnU1RVVkdlZ2t4azRkNGJFNndFMlJKQjkyIiwic3ViIjoib2dyZ1NUVVZHZWdreGs0ZDRiRTZ3RTJSSkI5MiIsImlhdCI6MTY2NTk1MTcxMCwiZXhwIjoxNjY1OTU1MzEwLCJlbWFpbCI6InBhekBob3JjaHRhLnN2IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInBhekBob3JjaHRhLnN2Il19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.RVZPa-QHcXqp_fViONu09yn0Rnc_uHQAdy0DJsVDst6Yp7R0kcz629Ux76-BBCsmdynOSIpjnXtufq0p9olzlWjqloTcCGSYRLVIzigPWsZ23ngZ1diDpDvTxcBRJ2brko3Wf1lGOoZ7k_L8WyTq3z8sCmTRBdP-94_Rc9zuAt_bxE2ivDe2O3t70xNB8LEfV8YvlNS6aM_RHQXQ6s7TGHY2q5_wOjSlUTx-MHFaWxMBTYo--m9YjBcP1g8cL4dtojYqvN8m9WkjQcMyB6R7g-Ai3qgsmR4apfJF7p-dw1FXQOU6SFuVPOFnY4TixtYma6vxAqrwLVpxUkCoi8xfJw",
+        "expirationTime": 1665955310289,
+        "refreshToken": "AOEOulZ5ATxUeXYsI8B8bkxNd5uTROYp1kGB5Ykgd8GK5sCFc3-gNW8vL6bRUnKkRJBK3j6idut3s_04EdczqIWtlVD37WhjV9tPeIfo_AvqR7agjzIp3A1WrpZam-aBm-4fNkq9HHNFUY3bVJvydYZUXadXFakx_O8XCKGyMM47mkwu0pDHL7oUpe5KsHTi9Ub5biqtuAjE",
+      },
+      "tenantId": undefined,
+      "uid": "ogrgSTUVGegkxk4d4bE6wE2RJB92",
+    },
+  }
+
+ {
+    "_redirectEventId": undefined,
+    "apiKey": "AIzaSyDcnfV13gRBuvKbKjl5sXBOn0P32Sf0188",
+    "appName": "[DEFAULT]",
+    "createdAt": "1665959785805",
+    "displayName": undefined,
+    "email": "ruby2386@gmail.com",
+    "emailVerified": false,
+    "isAnonymous": false,
+    "lastLoginAt": "1665959785805",
+    "phoneNumber": undefined,
+    "photoURL": undefined,
+    "providerData": Array [
+      Object {
+        "displayName": null,
+        "email": "ruby2386@gmail.com",
+        "phoneNumber": null,
+        "photoURL": null,
+        "providerId": "password",
+        "uid": "ruby2386@gmail.com",
+      },
+    ],
+    "stsTokenManager": Object {
+      "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVkMzQwZGRiYzNjNWJhY2M0Y2VlMWZiOWQxNmU5ODM3ZWM2MTYzZWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vd2F0Y2hpby02NTk4MSIsImF1ZCI6IndhdGNoaW8tNjU5ODEiLCJhdXRoX3RpbWUiOjE2NjU5NTk3ODUsInVzZXJfaWQiOiJ3WHBCVGVISkh3WmtqOG5RNlRDQ01vQzVRZzMyIiwic3ViIjoid1hwQlRlSEpId1prajhuUTZUQ0NNb0M1UWczMiIsImlhdCI6MTY2NTk1OTc4NSwiZXhwIjoxNjY1OTYzMzg1LCJlbWFpbCI6InJ1YnkyMzg2QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJydWJ5MjM4NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.1yRNGyl_WBEReJZhPmyP4TVCRSzdCFmdAJtcmm2ojZA8ptY33tLOEe397AzMk4bDIRSEdFGAqfJasvnwr8NOG-_2nzStqX3CktIm6yZ-8T3YQIyw-7PJXLTNWDzztbPqgUiEKoSaBvNfU2nJLkLIS9nPOmxZzdvlTyuby1J22byZvE5IW0TMJTCBS5Wpyhd8yA2WR8K8XV_e1OTHbgmwRMZnipB10eHwLOMct7gr7r9G5_02T8AtYRaQqup4XPLIGj4_3DRNvnjw4SfSO6cSzcxUSvSwgjqk9KxKV6sYL88OAwYIzFgiH6GUAr6IRTnQC1r_J_zZvQTO8Yad5wLx3Q",
+      "expirationTime": 1665963385643,
+      "refreshToken": "AOEOula5Z8pXKvJ-5z4zL4ENJmTco2zIhN7veFivLD6nDJ1vHDff1K3c2t875vTjQoWLEiPHEB0VHPVR_LUeN5NfQ3UfnJnkjI84jeDrSy-E7BUV7TursbLTPlYJRUs_sCNXc3NRy7obZdJ-AaQLkkJ47V4881H8GF2xxi8YdEpQlElmX3lZ3UhHdYSNTjz5wWbbZlWtj9GM-XWhzX0G6EBDN7hVvwhFfA",
+    },
+    "tenantId": undefined,
+    "uid": "wXpBTeHJHwZkj8nQ6TCCMoC5Qg32",
+  }
