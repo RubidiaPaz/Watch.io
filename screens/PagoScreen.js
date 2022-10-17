@@ -23,9 +23,8 @@ const PagoScreen = () => {
         <View className="ml-5">
           <View className=" items-center">
             <Image
-              className="w-16 h-16 ml-5 mt-5"
-              tintColor="#DC2626"
-              source={loginImages.videoCamera}
+              className="w-10 h-12 ml-5 mt-5"
+              source={loginImages.logobn}
             />
           </View>
         </View>
