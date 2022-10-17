@@ -4,21 +4,17 @@ import {
   SafeAreaView,
   Image,
   TextInput,
-  StyleSheet,
-  TouchableHighlight,
   ScrollView,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import loginImages from "../assets/loginImages";
-import { LinearGradient } from "expo-linear-gradient";
-import ButtonComponent from "../atoms/Button";
+
 import GradientButton from "../atoms/GradientButton";
 import { authentication } from "../firebase-config";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
   updateProfile,
 } from "firebase/auth";
 
@@ -66,19 +62,14 @@ const RegisterScreen = () => {
           photoURL : `https://avatars.dicebear.com/api/avataaars/${lastNames.trim()}.svg`
         });
       })
+      .then(
+        navigation.navigate('Login')
+      )
       .catch(function (error) {
         console.log(error);
       });
   };
-  const LoginWithPassword = () => {
-    signInWithEmailAndPassword(authentication, userEmail, userPassword)
-      .then((res) => {
-        console.log("login response: ", res);
-      })
-      .catch((res) => {
-        console.log("login error: ", res);
-      });
-  };
+  
 
 
   useLayoutEffect(() => {
@@ -157,10 +148,6 @@ const RegisterScreen = () => {
         <View className="mt-10 border-white  h-10">
           <GradientButton text={"Registrarse"} onPressed={RegisterUser} />
         </View>
-        <View className="mt-10 border-white  h-10">
-          <GradientButton text={"Registrarse"} onPressed={LoginWithPassword} />
-        </View>
-     
       </ScrollView>
     </SafeAreaView>
   );

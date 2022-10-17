@@ -31,7 +31,7 @@ const HomeScreen = () => {
         </View>
       </View>
       <View className="items-center">
-        <Button text="Ir a pantalla de inicio" />
+        <Button text="Ir a pantalla de inicio" onSubmit={()=>{navigation.navigate('Perfil')}}/>
       </View>
     </SafeAreaView>
   );

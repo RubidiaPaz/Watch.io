@@ -113,7 +113,7 @@ const FormularioDePago = () => {
         rules={{ required: true }}
       />
       <View>
-        <Button text="Procesar" onSubmit={handleSubmit(onSubmit)} />
+        <Button text="Procesar" onSubmit={()=>{navigation.navigate('pagoExitoso')}} />
       </View>
     </View>
   );

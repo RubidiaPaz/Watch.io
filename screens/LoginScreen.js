@@ -1,25 +1,20 @@
 import {
-  View,
-  Text,
-  Image,
-  SafeAreaView,
-  Button,
-  TextInput,
-  Keyboard,
-  KeyboardAvoidingView,
-  TouchableOpacity,
+  View,Text,Image,SafeAreaView,Button,TextInput,Keyboard,ActivityIndicator
 } from "react-native";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import {authentication} from "../firebase-config";
 import loginImages from "../assets/loginImages";
 import { Checkbox } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import GradientButton from "../atoms/GradientButton";
 import GradientButtonImage from "../atoms/GradientButtonImage";
+import {signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
+
 
 const LoginScreen = () => {
   
   const navigation = useNavigation();
+  const [loading, setLoading] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [checked, setChecked] = React.useState(false);
@@ -29,6 +24,54 @@ const LoginScreen = () => {
       headerShown: false,
     });
   }, []);
+
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(authentication,(user) =>{
+  //     if(user){
+  //       navigation.navigate('SelecionDePlan')
+  //     }
+  //   })
+  //   return unsubscribe
+  // }, [])
+  
+
+  onAuthStateChanged(authentication, (user) => {
+    if (user) {
+      navigation.navigate('SelecionDePlan')
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+  const LoginWithPassword = async () => {
+    try {
+      setLoading(true);
+      await signInWithEmailAndPassword(authentication,userEmail, userPassword)
+      .then(res=>{console.log(res)})
+      setLoading(false);
+    } catch (e) {
+      alert(e);
+    }
+    
+  }
+
+  if(loading) {
+    return (
+         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+             <ActivityIndicator size="large" color={'#fff'} />
+         </View>
+    )
+   }
+  
+  // const LoginWithPassword = () => {
+  //   signInWithEmailAndPassword(authentication, userEmail, userPassword)
+  //     .then((res) => {
+  //       console.log("login response: ", res);
+  //     })
+  //     .catch((res) => {
+  //       console.log("login error: ", res);
+  //     });
+  // };
 
   return (
     <SafeAreaView className="h-full w-full bg-[#171719]">
@@ -51,8 +94,8 @@ const LoginScreen = () => {
 
         <View className="items-center mt-10 px-8">
           <TextInput
-            onChangeText={(userEmail) => setUserEmail(userEmail)}
             value={userEmail}
+            onChangeText={(userEmail) => setUserEmail(userEmail)}
             className="w-full border border-[#082eb4] p-2 rounded-xl"
             placeholder="Correo Electrónico"
             color="white"
@@ -68,7 +111,7 @@ const LoginScreen = () => {
         <View className="items-center mt-10 px-8">
           <TextInput
             className="w-full border border-[#082EB4]  p-2 rounded-xl "
-            onChangeText={(userPassword) => setUserEmail(userPassword)}
+            onChangeText={(userPassword) => setUserPassword(userPassword)}
             value={userPassword}
             placeholder="Contraseña" //12345
             placeholderTextColor="#8b9cb5"
@@ -98,7 +141,7 @@ const LoginScreen = () => {
 
       <View className="space-y-2">
         <View className='text-white text-center text-xl mt-10'>
-          <GradientButton text={"Ingresar"} onPressed={()=>navigation.navigate('Perfil')}/>
+          <GradientButton text={"Ingresar"} onPressed={LoginWithPassword}/>
         </View>
         
         <View className="items-center justify-center">

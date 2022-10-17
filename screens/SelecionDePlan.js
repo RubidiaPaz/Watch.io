@@ -11,9 +11,7 @@ const SelecionDePlan = () => {
   const [planSelecionado, setPlanSelecionado] = useState(null);
 
   const handlePlanSelecionado = (id) => {
-    if (id) {
-      setPlanSelecionado(id);
-    }
+    navigation.navigate('pago')
   };
 
   useLayoutEffect(() => {
