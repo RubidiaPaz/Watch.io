@@ -5,6 +5,8 @@ const loginImages = {
     videoCamera: require("./loginImages/videoCamera.png"),
     perfil: require("./loginImages/perfil.jpg"),
     googleLogo: require("./loginImages/googleLogo.png"),
-    logobn: require("./loginImages/logoWBN.png")
+    logobn: require("./loginImages/logoWBN.png"),
+    logocompleto: require("./loginImages/logoCompleto.png")
+
    }
    export default loginImages;
