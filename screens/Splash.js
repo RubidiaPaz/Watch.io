@@ -1,24 +1,60 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, SafeAreaView } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { useNavigation } from "@react-navigation/native";
+import { Motion } from "@legendapp/motion"
+import loginImages from '../assets/loginImages'
 
 const Splash = () => {
     const navigation = useNavigation();
+    let finish=0;
     // setTimeout(()=>{
     //     navigation.navigate("Inicio")
-    // },3000)
-
+    // },2000)
+    setTimeout(()=>{
+        finish=500;
+        console.log(finish)
+    },1500)
     useLayoutEffect(() => {
         navigation.setOptions({
           headerShown: false,
         });
       }, []);
   return (
-    <View>
-        <Image
-            source={{ uri:'https://i.pinimg.com/originals/bb/2e/9f/bb2e9f14807c1c33f38c81e612c2068c.gif' }}
-        />
-    </View>
+    <SafeAreaView
+    className='h-full w-screen  bg-slate-600 flex items-center justify-center'
+
+    >
+  <Motion.View
+        initial={{ y: -620 , scale: 1.6}}
+        animate={{ x: finish, y: 0 , scale:0.8}}
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ y: 20 }}
+        transition={{ type: 'spring' }}
+        rotate= {{ x:50 }}
+        animateProps={{
+            fill: true ? '#F81FEC' : '#59B0F8',
+        }}
+        viewport={{ once: false }}
+        className="">
+         <Image
+         className="w-32 h-[160px] animate-pulse "
+
+          source={loginImages.logobn}
+         />
+         <Motion.Text
+         initial={{ y: -620 , scale: 1.6}}
+        animate={{ x: 0, y: 0 , scale:0.8}}
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ y: 20 }}
+        transition={{ type: 'spring' }}
+    
+     
+         className="text-4xl"
+         >Watch.io</Motion.Text>
+
+    </Motion.View>
+
+    </SafeAreaView>
   )
 }
 
