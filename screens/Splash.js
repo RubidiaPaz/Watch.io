@@ -7,9 +7,9 @@ import loginImages from '../assets/loginImages'
 const Splash = () => {
     const navigation = useNavigation();
     let finish=0;
-    // setTimeout(()=>{
-    //     navigation.navigate("Inicio")
-    // },2000)
+    setTimeout(()=>{
+        navigation.navigate("Inicio")
+    },2000)
     setTimeout(()=>{
         finish=500;
         console.log(finish)
@@ -21,12 +21,12 @@ const Splash = () => {
       }, []);
   return (
     <SafeAreaView
-    className='h-full w-screen  bg-slate-600 flex items-center justify-center'
+    className='h-full w-screen  bg-[#171719] flex items-center justify-center'
 
     >
   <Motion.View
         initial={{ y: -620 , scale: 1.6}}
-        animate={{ x: finish, y: 0 , scale:0.8}}
+        animate={{ x: finish, y: 0 , scale:1.8}}
         whileHover={{ scale: 1.2 }}
         whileTap={{ y: 20 }}
         transition={{ type: 'spring' }}
@@ -37,20 +37,21 @@ const Splash = () => {
         viewport={{ once: false }}
         className="">
          <Image
-         className="w-32 h-[160px] animate-pulse "
+         className="w-48 h-48 animate-pulse "
 
-          source={loginImages.logobn}
+          source={loginImages.logocompleto}
          />
-         <Motion.Text
+         {/* <Motion.Text
          initial={{ y: -620 , scale: 1.6}}
         animate={{ x: 0, y: 0 , scale:0.8}}
         whileHover={{ scale: 1.2 }}
         whileTap={{ y: 20 }}
         transition={{ type: 'spring' }}
+  
     
      
-         className="text-4xl"
-         >Watch.io</Motion.Text>
+         className="text-4xl text-white"
+         >Watch.io</Motion.Text> */}
 
     </Motion.View>
 
