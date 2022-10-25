@@ -75,8 +75,6 @@ const RegisterScreen = () => {
           </Text>
         </View>
 
-
-
         {/* data input */}
         <View className="form-control mt-3">
 
@@ -98,7 +96,6 @@ const RegisterScreen = () => {
             : <Text className="text-red-500 px-8 mt-2 ">Contraseña no coinciden</Text>
           }
           
-
         </View>
 
         <View className="mt-10 border-white  h-10">
