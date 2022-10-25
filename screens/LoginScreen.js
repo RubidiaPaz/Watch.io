@@ -25,15 +25,6 @@ const LoginScreen = () => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(authentication,(user) =>{
-  //     if(user){
-  //       navigation.navigate('SelecionDePlan')
-  //     }
-  //   })
-  //   return unsubscribe
-  // }, [])
-  
 
   onAuthStateChanged(authentication, (user) => {
     if (user) {
