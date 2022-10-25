@@ -37,9 +37,9 @@ const Splash = () => {
         viewport={{ once: false }}
         className="">
          <Image
-         className="w-48 h-48 animate-pulse "
+         className="w-52 h-20 animate-pulse "
 
-          source={loginImages.logocompleto}
+          source={loginImages.logoC}
          />
          {/* <Motion.Text
          initial={{ y: -620 , scale: 1.6}}

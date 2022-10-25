@@ -62,9 +62,8 @@ const RegisterScreen = () => {
         <View className="flex-row mt-10">
           <View className="ml-5">
             <Image
-              className="w-16 h-16 ml-5"
-              tintColor="#DC2626"
-              source={loginImages.videoCamera}
+              className="w-10 h-12 mt-10"
+              source={loginImages.logobn}
             />
           </View>
         </View>
@@ -79,7 +78,7 @@ const RegisterScreen = () => {
 
 
         {/* data input */}
-        <View className="form-control">
+        <View className="form-control mt-3">
 
           <FieldInput  hint={"Correo"} type={"email-address"} value={userInfo.email} onChangeText={e=>setUserInfo(prev => ({...prev, email: e}))} secureTextEntry={false} validateType={"email"}/>
           {(submited && validation(userInfo.email,"email"))}
