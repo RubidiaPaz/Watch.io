@@ -15,7 +15,7 @@ const HomeScreen = () => {
     });
   }, []);
   return (
-    <SafeAreaView className="h-full w-full  bg-black">
+    <SafeAreaView className="h-full w-full  bg-[#171719]">
       <Image
         className="w-10 h-12 ml-7 mt-16"
         source={loginImages.logobn}

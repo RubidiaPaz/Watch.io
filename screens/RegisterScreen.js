@@ -1,76 +1,54 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  TextInput,
-  ScrollView,
-} from "react-native";
+import {View,Text,SafeAreaView,Image,TextInput,ScrollView, Alert, Modal,Pressable} from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import loginImages from "../assets/loginImages";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import GradientButton from "../atoms/GradientButton";
 import { authentication } from "../firebase-config";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile,} from "firebase/auth";
+import FieldInput from "../components/FieldInput";
+import validation from "../validation/validate";
 
-const InputComponent = ({
-  placeholder,
-  type,
-  isError,
-  value,
-  onChangeText,
-  secureText = false,
-}) => (
-  <>
-    <TextInput
-      className="border border-[#082EB4] rounded-2xl w-11/12 h-12 text-white mx-auto pl-5 mt-5 font-sans"
-      placeholder={placeholder}
-      keyboardType={type}
-      placeholderTextColor={"white"}
-      secureTextEntry={secureText}
-      value={value}
-      onChangeText={onChangeText}
-    />
-    {isError ? (
-      <Text className="text-[#fc3f3f] ml-7 mt-1">Campo obligatorio</Text>
-    ) : (
-      ""
-    )}
-  </>
-);
+
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
-  const [userEmail, setUserEmail] = useState("");
-  const [firstNames, setFirstNames] = useState("");
-  const [lastNames, setLastNames] = useState("");
-  const [userPassword, setUserPassword] = useState("");
-  const [userPasswordConfirm, setUserPasswordConfirm] = useState("");
+
+  const [userInfo, setUserInfo] = useState(
+    {
+      email: "",
+      firstName: "",
+      lastName: "",
+      password: "",
+      paswordConfirm: "",
+     })
+  const [submited, setSubmited]= useState(false)
 
 
   const RegisterUser = () => {
-   
-      createUserWithEmailAndPassword(authentication, userEmail, userPassword)
-      .then(function (result) {
-        return updateProfile(result.user,{
-          displayName: `${firstNames} ${lastNames}`,
-          photoURL : `https://avatars.dicebear.com/api/avataaars/${lastNames.trim()}.svg`
-        });
-      })
-      .then(
-        navigation.navigate('Login')
-      )
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-  
+    setSubmited(!submited)
+    // console.log('validado: ', )
 
+    if (validation(userInfo, "all")) {
+        createUserWithEmailAndPassword(authentication, userInfo.email, userInfo.password)
+        .then(function (result) {
+          return updateProfile(result.user,{
+            displayName: `${userInfo.firstName} ${userInfo.lastName}`,
+            photoURL : `https://avatars.dicebear.com/api/avataaars/${userInfo.firstName.trim()}.svg`
+          });
+        })
+        .then(
+          
+        )
+        .catch(function (error) {
+          console.log(error.message)
+          setMessage(error.message)
+        });
+        return
+      }
+      
+     
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -79,9 +57,9 @@ const RegisterScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView className="h-full w-full bg-[#171719]">
-      <ScrollView>
-        <View className="flex-row mt-3">
+    <SafeAreaView className="h-full w-full bg-[#171719] flex justify-center items-center">
+      <ScrollView >
+        <View className="flex-row mt-10">
           <View className="ml-5">
             <Image
               className="w-16 h-16 ml-5"
@@ -91,58 +69,37 @@ const RegisterScreen = () => {
           </View>
         </View>
 
+        {/* legend */}
         <View className="mt-5 mx-5">
-          <Text className="text-white text-4xl font-sans font-bold text-center">
+          <Text className="text-white text-4xl  font-bold text-center">
             Registrate para iniciar tu mes gratis
           </Text>
         </View>
 
-        <View className="mt-7 mx-5">
-          <Text className="text-white text-4xl font-sans font-bold">
-            Registro
-          </Text>
-        </View>
 
+
+        {/* data input */}
         <View className="form-control">
-          <InputComponent
-            placeholder={"Correo Electronico"}
-            value={userEmail}
-            onChangeText={(userEmail) => setUserEmail(userEmail)}
-            type={"text"}
-            isError={false}
-          />
-          <InputComponent
-            placeholder={"Nombres"}
-            type={"text"}
-            value={firstNames}
-            onChangeText={(firstNames) => setFirstNames(firstNames)}
-            isError={false}
-          />
-          <InputComponent
-            placeholder={"Apellidos"}
-            type={"text"}
-            value={lastNames}
-            onChangeText={(lastNames) => setLastNames(lastNames)}
-            isError={false}
-          />
-          <InputComponent
-            placeholder={"Contraseña"}
-            type={""}
-            value={userPassword}
-            onChangeText={(userPassword) => setUserPassword(userPassword)}
-            isError={false}
-            secureText={true}
-          />
-          <InputComponent
-            placeholder={"Confirmar contraseña"}
-            value={userPasswordConfirm}
-            onChangeText={(userPasswordConfirm) =>
-              setUserPasswordConfirm(userPasswordConfirm)
-            }
-            type={""}
-            isError={false}
-            secureText={true}
-          />
+
+          <FieldInput  hint={"Correo"} type={"email-address"} value={userInfo.email} onChangeText={e=>setUserInfo(prev => ({...prev, email: e}))} secureTextEntry={false} validateType={"email"}/>
+          {(submited && validation(userInfo.email,"email"))}
+          
+          <FieldInput  hint={"Nombre"} type={"default"} value={userInfo.firstName} onChangeText={e=>setUserInfo(prev => ({...prev, firstName: e}))} secureTextEntry={false} validateType={"name"}/>
+          {(submited && validation(userInfo.firstName,"name")) }
+          
+          <FieldInput  hint={"Apellidos"} type={"default"} value={userInfo.lastName} onChangeText={e=>setUserInfo(prev => ({...prev, lastName: e}))} secureTextEntry={false} validateType={"name"}/>
+          {(submited && validation(userInfo.lastName,"name")) }
+          
+          <FieldInput  hint={"Contraseña"} type={"password"} value={userInfo.password} onChangeText={e=>setUserInfo(prev => ({...prev, password: e}))} secureTextEntry={true} validateType={"password"}/>
+          {(submited && validation(`${userInfo.password}`,"password")) }
+          
+          <FieldInput  hint={"Confirma la Contraseña"} type={"password"} value={userInfo.paswordConfirm} onChangeText={e=>setUserInfo(prev => ({...prev, paswordConfirm: e}))} secureTextEntry={true} validateType={"password"}/>
+          {(!submited && (userInfo.password == userInfo.paswordConfirm) )
+            ?  null
+            : <Text className="text-red-500 px-8 mt-2 ">Contraseña no coinciden</Text>
+          }
+          
+
         </View>
 
         <View className="mt-10 border-white  h-10">

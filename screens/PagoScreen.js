@@ -18,7 +18,7 @@ const PagoScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView className="h-full w-full  bg-black ">
+    <SafeAreaView className="h-full w-full  bg-[#171719] ">
       <View className="flex-row mt-10">
         <View className="ml-5">
           <View className=" items-center">
