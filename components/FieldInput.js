@@ -16,7 +16,7 @@ const FieldInput = ({
     <>
        <TextInput
             placeholderTextColor={"#fff"}
-            className="border border-[#082EB4] rounded-2xl w-11/12 h-12 text-white mx-auto pl-5 mt-5 "
+            className="border border-[#082EB4] rounded-2xl w-11/12 h-12 text-white mx-auto pl-5 mt-2 "
             placeholder={hint}
             keyboardType={type}
             value={value}

@@ -48,7 +48,7 @@ const ProfileScreen = () => {
                                 <LoaderSVG/>
                              
                                 <View className="flex w-32">
-                                    <Text className="text-white font-semibold text-center capitalize ">Perfil: {authentication.currentUser.displayName}</Text>
+                                    <Text className="text-white font-semibold mb-5 text-center capitalize">{authentication.currentUser.displayName}</Text>
                                 </View>
                             </View>
                         </TouchableOpacity>
