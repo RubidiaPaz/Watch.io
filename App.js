@@ -9,6 +9,8 @@ import PagoExitosoScreen from "./screens/pagoExitosoScreen";
 import SelecionDePlan from "./screens/SelecionDePlan";
 import RegisterScreen from './screens/RegisterScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import HomeScreen from './screens/HomeScreen';
+import SearchScreen from './screens/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +18,7 @@ export default function App() {
   return (
     <NavigationContainer>
        
-      <Stack.Navigator initialRouteName='Inicio'>
+      <Stack.Navigator initialRouteName='Search'>
         {/* screens */}
         <Stack.Screen name="Inicio" component={LandingScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
@@ -25,6 +27,8 @@ export default function App() {
         <Stack.Screen name="pago" component={PagoScreen} />
         <Stack.Screen name="pagoExitoso" component={PagoExitosoScreen} />
         <Stack.Screen name="seleccionDePlan" component={SelecionDePlan} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Search" component={SearchScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
