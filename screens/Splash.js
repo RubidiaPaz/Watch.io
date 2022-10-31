@@ -37,7 +37,7 @@ const Splash = () => {
         viewport={{ once: false }}
         className="">
          <Image
-         className="w-52 h-20 animate-pulse "
+         className="w-48 h-[75px] ml-5 animate-pulse "
 
           source={loginImages.logoC}
          />
