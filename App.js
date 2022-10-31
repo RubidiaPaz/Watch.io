@@ -11,14 +11,14 @@ import RegisterScreen from './screens/RegisterScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import HomeScreen from './screens/HomeScreen';
 import SearchScreen from './screens/SearchScreen';
-
+import MovieDetails from './screens/MovieDetails';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
        
-      <Stack.Navigator initialRouteName='Search'>
+      <Stack.Navigator initialRouteName='MovieDetails'>
         {/* screens */}
         <Stack.Screen name="Inicio" component={LandingScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
@@ -29,6 +29,7 @@ export default function App() {
         <Stack.Screen name="seleccionDePlan" component={SelecionDePlan} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="MovieDetails" component={MovieDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -8,5 +8,6 @@ const loginImages = {
     logobn: require("./loginImages/logobn.png"),
     videoplays: require("./loginImages/playicon.png"),
     search: require("./loginImages/search.png"),
+    backicon: require("./loginImages/backicon.png"),
 }
    export default loginImages;
