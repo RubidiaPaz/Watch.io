@@ -18,7 +18,7 @@ export default function LoaderSVG() {
       <SvgUri
         width="100"
         height="100"
-        uri={authentication.currentUser.photoURL}
+        uri={authentication?.currentUser?.photoURL}
         onError={onError}
         onLoad={onLoad}
       />

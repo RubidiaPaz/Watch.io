@@ -5,11 +5,19 @@ import Total from "../atoms/Total";
 import pagoImages from "../assets/pagoImages";
 import loginImages from "../assets/loginImages";
 import FormularioDePago from "../atoms/FormularioDePago";
-
 import React, { useLayoutEffect } from "react";
 
-const PagoScreen = () => {
+
+
+const PagoScreen = ({route}) => {
+
   const navigation = useNavigation();
+  const { planId } = route.params;
+
+  // console.log("plan", JSON.stringify(planId));
+
+
+
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -32,6 +40,7 @@ const PagoScreen = () => {
       <View className="ml-5">
         <View className="items-center">
           <Title text="Paga con:" />
+         
         </View>
       </View>
       <View className="ml-5 mt-5">
@@ -46,7 +55,7 @@ const PagoScreen = () => {
         <Image source={pagoImages.paymentMethods} />
       </View>
       <ScrollView className="p-5">
-        <FormularioDePago />
+        <FormularioDePago plan={planId}/>
       </ScrollView>
     </SafeAreaView>
   );

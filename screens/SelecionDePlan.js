@@ -1,18 +1,31 @@
-import { View, Image, SafeAreaView } from "react-native";
-import React, { useLayoutEffect, useState } from "react";
+import { View, Image, SafeAreaView, Text } from "react-native";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Title from "../atoms/Title";
 import { useNavigation } from "@react-navigation/native";
 import loginImages from "../assets/loginImages";
 import Plan from "../components/Plan";
 import { planes } from "../const/planes";
 
-const SelecionDePlan = () => {
-  const navigation = useNavigation();
-  const [planSelecionado, setPlanSelecionado] = useState(null);
+
+const SelecionDePlan = ({navigation}) => {
+  // const navigation = useNavigation();
+  const [planSelecionado, setPlanSelecionado] = useState("");
+
+  useEffect(() => {
+    //no le quites el if que al ser un hook de tipo use effect
+    //se ejecuta una vez cuando carga el componente y vas a hacer un loop infinito
+    if (planSelecionado !== "") {
+      navigation.navigate("pago", {
+        planId: planSelecionado
+      });
+    }
+  }, [planSelecionado])
+  
 
   const handlePlanSelecionado = (id) => {
-    navigation.navigate('pago')
+    setPlanSelecionado(id);
   };
+
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -22,16 +35,14 @@ const SelecionDePlan = () => {
 
   return (
     <SafeAreaView className="h-full w-full  bg-black">
-      <Image
-        className="w-10 h-12 ml-7 mt-10"
-        source={loginImages.logobn}
-      />
+      <Image className="w-10 h-12 ml-7 mt-10" source={loginImages.logobn} />
       <View className="mt-5 p-5 mb-8">
         <View className="items-center">
           <Title text="Elije el plan que deseas adquirir" />
+       
         </View>
       </View>
-      <View className="items-center">
+      <View className="items-center flex">
         {planes.map((plan) => (
           <Plan
             titulo={plan.titulo}
@@ -42,6 +53,7 @@ const SelecionDePlan = () => {
             onSubmit={handlePlanSelecionado}
           />
         ))}
+    
       </View>
     </SafeAreaView>
   );

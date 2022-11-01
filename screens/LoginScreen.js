@@ -9,15 +9,17 @@ import { useNavigation } from "@react-navigation/native";
 import GradientButton from "../atoms/GradientButton";
 import GradientButtonImage from "../atoms/GradientButtonImage";
 import {signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
+import validation from "../validation/validate";
+import handleError from "../validation/firebaseError.handler";
 
 
-const LoginScreen = () => {
-  
-  const navigation = useNavigation();
+const LoginScreen = ({ navigation }) => {
+ 
   const [loading, setLoading] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [checked, setChecked] = React.useState(false);
+
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -25,44 +27,39 @@ const LoginScreen = () => {
     });
   }, []);
 
-
   onAuthStateChanged(authentication, (user) => {
     if (user) {
-      navigation.navigate('SelecionDePlan')
+      navigation.navigate("SelecionDePlan");
+      setLoading(false);
     } else {
-      // User is signed out
-      // ...
+      setLoading(false);
+      navigation.navigate("Login");
     }
   });
   const LoginWithPassword = async () => {
     try {
       setLoading(true);
-      await signInWithEmailAndPassword(authentication,userEmail, userPassword)
-      .then(res=>{console.log(res)})
-      setLoading(false);
+      await signInWithEmailAndPassword(
+        authentication,
+        userEmail,
+        userPassword
+      ).then((res) => {
+        console.log(res);
+      });
     } catch (e) {
-      alert(e);
+      setLoading(false);
+      console.log(e.message);
+      alert(handleError(e.message));
     }
-    
-  }
+  };
 
-  if(loading) {
+  if (loading) {
     return (
-         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-             <ActivityIndicator size="large" color={'#fff'} />
-         </View>
-    )
-   }
-  
-  // const LoginWithPassword = () => {
-  //   signInWithEmailAndPassword(authentication, userEmail, userPassword)
-  //     .then((res) => {
-  //       console.log("login response: ", res);
-  //     })
-  //     .catch((res) => {
-  //       console.log("login error: ", res);
-  //     });
-  // };
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <ActivityIndicator size="large" color={"#fff"} />
+      </View>
+    );
+  }
 
   return (
     <SafeAreaView className="h-full w-full bg-[#171719]">
@@ -70,9 +67,7 @@ const LoginScreen = () => {
         {/*div de camara y ayuda*/}
         <View className="ml-10">
           <View className="flex-row  justify-between mr-16 items-center">
-            <Image
-              source={loginImages.logobn} className="h-12 w-10"
-            />
+            <Image source={loginImages.logobn} className="h-12 w-10" />
             <Text className="font-bold text-md text-white">Ayuda</Text>
           </View>
         </View>
@@ -83,7 +78,7 @@ const LoginScreen = () => {
           </Text>
         </View>
 
-        <View className="items-center mt-10 px-8">
+        <View className="mt-10 px-8">
           <TextInput
             value={userEmail}
             onChangeText={(userEmail) => setUserEmail(userEmail)}
@@ -95,8 +90,8 @@ const LoginScreen = () => {
             keyboardType="email-address" //formato de correo en teclado
             returnKeyType="next"
             //onSubmitEditing={()=>}
-            blurOnSubmit={false}
           />
+          {validation(userEmail, "email")}
         </View>
 
         <View className="items-center mt-10 px-8">
@@ -108,11 +103,9 @@ const LoginScreen = () => {
             placeholderTextColor="#8b9cb5"
             keyboardType="default"
             color="white"
-            // ref={passwordInputRef}
             onSubmitEditing={Keyboard.dismiss}
             blurOnSubmit={false}
             secureTextEntry={true} //para que la contraseña no se vea
-            // underlineColorAndroid="#f000"
             returnKeyType="next"
           />
         </View>
@@ -131,21 +124,24 @@ const LoginScreen = () => {
       </View>
 
       <View className="space-y-2">
-        <View className='text-white text-center text-xl mt-10'>
-          <GradientButton text={"Ingresar"} onPressed={LoginWithPassword}/>
+        <View className="text-white text-center text-xl mt-10">
+          <GradientButton text={"Ingresar"} onPressed={LoginWithPassword} />
         </View>
-        
+
         <View className="items-center justify-center">
-            <Text className="text-white text-xs p-1"> O continuar con </Text>
+          <Text className="text-white text-xs p-1"> O continuar con </Text>
         </View>
-        <View className='text-white text-center text-xl mt-10'>
-          <GradientButtonImage text={"Iniciar Sesión"} onPressed={()=>navigation.navigate('')}/>
+        <View className="text-white text-center text-xl mt-10">
+          <GradientButtonImage
+            text={"Iniciar Sesión"}
+            onPressed={() => navigation.navigate("")}
+          />
         </View>
 
         <Text className="text-white text-center ">
           ¿No tienes una cuenta?
           <Text
-            onPress={()=>navigation.navigate('Registro')}
+            onPress={() => navigation.navigate("Registro")}
             style={{ fontWeight: "bold" }}
           >
             {" "}

@@ -6,33 +6,41 @@ import loginImages from '../assets/loginImages';
 import GradientButton from '../atoms/GradientButton';
 import LoginScreen from './LoginScreen';
 
-const LandingScreen = () => {
-  const navigation = useNavigation();
+const LandingScreen = ({ navigation }) => {
+ 
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerShown: false
-    })
-  }, [])
+      headerShown: false,
+    });
+  }, []);
 
   return (
     <SafeAreaView className="h-full w-full  bg-[#171719]">
-
       <View className="flex-row mt-20 space-x-10">
         {/*div de camara y greyman la parte izquierda*/}
         <View className="ml-10">
           <View className="">
-            <Image source={loginImages.logobn} className="h-12 w-10"/>
+            <Image source={loginImages.logobn} className="h-12 w-10" />
           </View>
           {/*Imagen de Spiderman */}
-          <Image source={loginImages.spiderMan} className="h-48 w-32 mt-20 rounded-xl"/>
+          <Image
+            source={loginImages.spiderMan}
+            className="h-48 w-32 mt-20 rounded-xl"
+          />
         </View>
 
         {/*parte derecha*/}
         <View className="space-y-5">
-            <Image source={loginImages.blackAdam} className="h-48 w-36 mt-2 rounded-xl"/>
+          <Image
+            source={loginImages.blackAdam}
+            className="h-48 w-36 mt-2 rounded-xl"
+          />
           {/*Imagen de bladeRunner */}
-          <Image source={loginImages.bladeRunner} className="h-48 w-36 rounded-xl"/>
+          <Image
+            source={loginImages.bladeRunner}
+            className="h-48 w-36 rounded-xl"
+          />
         </View>
       </View>
 
@@ -46,13 +54,14 @@ const LandingScreen = () => {
   </View>*/}
       </View>
 
-      <View
-        className='text-white text-center text-xl mt-10'>    
-        <GradientButton text={"Iniciar Sesión"} onPressed={()=>navigation.navigate('Login')}/>      
+      <View className="text-white text-center text-xl mt-10">
+        <GradientButton
+          text={"Iniciar Sesión"}
+          onPressed={() => navigation.navigate("Login")}
+        />
       </View>
-
     </SafeAreaView>
-  )
-}
+  );
+};
 
 export default LandingScreen

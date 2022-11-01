@@ -4,7 +4,7 @@ import Button from "./Button";
 import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
 
-const FormularioDePago = () => {
+const FormularioDePago = ({plan}) => {
   const navigation = useNavigation();
   const {
     handleSubmit,
@@ -14,9 +14,13 @@ const FormularioDePago = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    navigation.navigate("pagoExitoso");
+    // console.log(data);
+     navigation.navigate("pagoExitoso", {
+       planId: plan,
+     });
   };
+
+
 
   return (
     <View>
@@ -113,7 +117,7 @@ const FormularioDePago = () => {
         rules={{ required: true }}
       />
       <View>
-        <Button text="Procesar" onSubmit={()=>{navigation.navigate('pagoExitoso')}} />
+        <Button text="Procesar" onSubmit={onSubmit} />
       </View>
     </View>
   );
