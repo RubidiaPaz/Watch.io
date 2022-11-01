@@ -110,9 +110,8 @@ const RegisterScreen = ({ navigation }) => {
         <View className="flex-row mt-10">
           <View className="ml-5">
             <Image
-              className="w-16 h-16 ml-5"
-              tintColor="#DC2626"
-              source={loginImages.videoCamera}
+              className="w-10 h-12 mt-10"
+              source={loginImages.logobn}
             />
           </View>
         </View>

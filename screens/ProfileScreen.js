@@ -1,12 +1,21 @@
-import { View, Text, SafeAreaView, Image, TextInput, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
-import { useNavigation } from '@react-navigation/native';
-import loginImages from '../assets/loginImages';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import loginImages from "../assets/loginImages";
 import GradientButton from "../atoms/GradientButton";
-import {signOut, onAuthStateChanged} from "firebase/auth";
-import { SvgUri } from 'react-native-svg';
-import LoaderSVG from '../atoms/LoaderSVG';
-import { ref, child, get,set } from "firebase/database";
+import { signOut, onAuthStateChanged } from "firebase/auth";
+import { SvgUri } from "react-native-svg";
+import LoaderSVG from "../atoms/LoaderSVG";
+import { ref, child, get, set } from "firebase/database";
 import { database, authentication } from "../firebase-config";
 
 const dbRef = ref(database);
@@ -15,29 +24,23 @@ const dbRef = ref(database);
 //     username: userId
 //   });
 
-
-
-
 const ProfileScreen = ({ navigation }) => {
-  
-  const [plan, setplan] = useState()
-  let uuid = authentication.currentUser.uid
-  
+  const [plan, setplan] = useState();
+  let uuid = authentication.currentUser.uid;
 
-   get(child(dbRef, `users/${uuid}`))
-     .then((snapshot) => {
-       if (snapshot.exists()) {
-          console.log(snapshot.val());
-          setplan(snapshot.val().planType);
-       } else {
-         console.log("No data available");
-       }
-     })
-     .catch((error) => {
-       console.error(error);
-   });
+  get(child(dbRef, `users/${uuid}`))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+        setplan(snapshot.val().planType);
+      } else {
+        console.log("No data available");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
-   
   const SingOut = async () => {
     signOut(authentication)
       .then(navigation.navigate("Inicio"))
@@ -77,26 +80,32 @@ const ProfileScreen = ({ navigation }) => {
               <LoaderSVG />
 
               <View className="flex w-32">
-                <Text className="text-white font-semibold text-center capitalize ">
-                  Perfil: {authentication?.currentUser?.displayName}
+                <Text className="text-white font-semibold mb-5 text-center capitalize">
+                  {authentication.currentUser.displayName}
                 </Text>
               </View>
             </View>
           </TouchableOpacity>
         </View>
 
-        <View className="text-white text-center text-xl mt-36">
-          <GradientButton
-            text={"Administrar Perfil"}
-            onPressed={() => navigation.navigate("")}
-          />
+        <View className="flex w-32">
+          <Text className="text-white font-semibold text-center capitalize ">
+            Perfil: {authentication?.currentUser?.displayName}
+          </Text>
         </View>
-        <View className="text-white text-center text-xl mt-10">
-          <GradientButton text={"Cerrar Sesion"} onPressed={SingOut} />
-        </View>
+      </View>
+
+      <View className="text-white text-center text-xl mt-36">
+        <GradientButton
+          text={"Administrar Perfil"}
+          onPressed={() => navigation.navigate("")}
+        />
+      </View>
+      <View className="text-white text-center text-xl mt-10">
+        <GradientButton text={"Cerrar Sesion"} onPressed={SingOut} />
       </View>
     </SafeAreaView>
   );
 };
 
-export default ProfileScreen
+export default ProfileScreen;

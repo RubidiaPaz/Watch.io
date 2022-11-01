@@ -8,6 +8,7 @@ import SelecionDePlan from "./screens/SelecionDePlan";
 import RegisterScreen from './screens/RegisterScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PeliculaScreen from './screens/PeliculasScreen';
+import AdminPerfil from './screens/AdminPerfil';
 import Splash from './screens/Splash';
 
 
@@ -21,8 +22,9 @@ export default function App() {
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Inicio" component={LandingScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Registro" component={RegisterScreen} />
-        <Stack.Screen name="Perfil" component={ProfileScreen} />
+        <Stack.Screen name='Registro' component={RegisterScreen} />
+        <Stack.Screen name='AdminPerfil' component={AdminPerfil} />
+        <Stack.Screen name='Perfil' component={ProfileScreen} />
         <Stack.Screen name="pago" component={PagoScreen} />
         <Stack.Screen name="pagoExitoso" component={PagoExitosoScreen} />
         <Stack.Screen name="SelecionDePlan" component={SelecionDePlan} />
