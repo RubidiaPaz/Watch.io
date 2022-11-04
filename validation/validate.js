@@ -4,14 +4,15 @@ const validation = (value,type) => {
 
     if (type==="all") {
         //console.log(value)
-        if((validateFields(value.email, "email")===true &&validateFields(value.firstName, "name")===true)&& validateFields(value.lastName, "name")===true){
-         
-            if( value.password!=value.paswordConfirm){
-            
-                return false
-            
-            }
-            return true
+        if (
+          validateFields(value.email, "email") === true &&
+          validateFields(value.firstName, "name") === true &&
+          validateFields(value.lastName, "name") === true
+        ) {
+          if (value.password != value.paswordConfirm) {
+            return false;
+          }
+          return true;
         }
         return false
     }

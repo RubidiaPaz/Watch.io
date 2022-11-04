@@ -1,28 +1,24 @@
 import { View, SafeAreaView, Image, ScrollView } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import Title from "../atoms/Title";
 import Total from "../atoms/Total";
 import pagoImages from "../assets/pagoImages";
 import loginImages from "../assets/loginImages";
 import FormularioDePago from "../atoms/FormularioDePago";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
+import checkSesion from "../validation/sesion.handler";
 
-
-
-const PagoScreen = ({route}) => {
-
-  const navigation = useNavigation();
+const PagoScreen = ({ route, navigation }) => {
   const { planId } = route.params;
 
   // console.log("plan", JSON.stringify(planId));
-
-
-
-
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
+  }, []);
+
+  useEffect(() => {
+    checkSesion(navigation);
   }, []);
 
   return (
@@ -40,7 +36,6 @@ const PagoScreen = ({route}) => {
       <View className="ml-5">
         <View className="items-center">
           <Title text="Paga con:" />
-         
         </View>
       </View>
       <View className="ml-5 mt-5">
@@ -55,7 +50,7 @@ const PagoScreen = ({route}) => {
         <Image source={pagoImages.paymentMethods} />
       </View>
       <ScrollView className="p-5">
-        <FormularioDePago plan={planId}/>
+        <FormularioDePago plan={planId} />
       </ScrollView>
     </SafeAreaView>
   );

@@ -1,9 +1,10 @@
 import { Text, View, Image, ScrollView,SafeAreaView} from 'react-native'
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import ListView from '../components/ListView'
 import * as comedia from '../movies/comedia.json';
 import * as accion from '../movies/accion.json';
 import * as romance from '../movies/romance.json';
+import checkSesion from '../validation/sesion.handler';
 
 // import { ref, child, get,set } from "firebase/database";
 // import { database, authentication } from "../firebase-config";
@@ -29,6 +30,10 @@ import * as romance from '../movies/romance.json';
 
 
 const PeliculaScreen = ({ navigation }) => {
+ useEffect(() => {
+   checkSesion(navigation);
+ }, []);
+
   return (
     <SafeAreaView className="flex  bg-white">
       <ScrollView>

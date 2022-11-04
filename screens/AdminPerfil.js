@@ -1,8 +1,7 @@
-import {View,Text,SafeAreaView,Image,TextInput,ScrollView, Alert, Modal,Pressable} from "react-native";
+import {View,Text,SafeAreaView,Image,ScrollView} from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import loginImages from "../assets/loginImages";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import GradientButton from "../atoms/GradientButton";
 import { authentication } from "../firebase-config";
 import { createUserWithEmailAndPassword, updateProfile,} from "firebase/auth";

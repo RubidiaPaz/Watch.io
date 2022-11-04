@@ -12,11 +12,12 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import loginImages from "../assets/loginImages";
 import GradientButton from "../atoms/GradientButton";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { SvgUri } from "react-native-svg";
 import LoaderSVG from "../atoms/LoaderSVG";
 import { ref, child, get, set } from "firebase/database";
 import { database, authentication } from "../firebase-config";
+import checkSesion from "../validation/sesion.handler";
 
 const dbRef = ref(database);
 //   let userId='eqwewqeqw'
@@ -54,6 +55,10 @@ const ProfileScreen = ({ navigation }) => {
       headerShown: false,
     });
   }, []);
+
+   useEffect(() => {
+     checkSesion(navigation);
+   }, []);
   return (
     <SafeAreaView className="h-full w-full bg-[#171719]">
       <View className="items-center mt-10">

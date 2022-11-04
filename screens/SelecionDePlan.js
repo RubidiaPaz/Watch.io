@@ -1,18 +1,19 @@
 import { View, Image, SafeAreaView, Text } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import Title from "../atoms/Title";
-import { useNavigation } from "@react-navigation/native";
 import loginImages from "../assets/loginImages";
 import Plan from "../components/Plan";
 import { planes } from "../const/planes";
+import checkSesion from "../validation/sesion.handler";
 
 
 const SelecionDePlan = ({navigation}) => {
   // const navigation = useNavigation();
   const [planSelecionado, setPlanSelecionado] = useState("");
 
+
   useEffect(() => {
-    //no le quites el if que al ser un hook de tipo use effect
+    //no le quites el if poque al ser un hook de tipo use effect
     //se ejecuta una vez cuando carga el componente y vas a hacer un loop infinito
     if (planSelecionado !== "") {
       navigation.navigate("pago", {
@@ -32,6 +33,12 @@ const SelecionDePlan = ({navigation}) => {
       headerShown: false,
     });
   }, []);
+
+  
+  useEffect(() => {
+     checkSesion(navigation);
+  }, [])
+  
 
   return (
     <SafeAreaView className="h-full w-full  bg-black">
