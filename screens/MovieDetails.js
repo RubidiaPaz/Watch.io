@@ -14,15 +14,15 @@ const MovieDetails = () => {
     }, []);
 
     return (
-        <SafeAreaView className='h-full w-full bg-black'>
-            <View className='w-full h-14 bg-black opacity-30 absolute z-10'></View>
+        <SafeAreaView className='h-full w-full bg-[#171719] flex'>
+            <View className='w-full h-14 bg-black opacity-30 absolute z-15'></View>
             <TouchableOpacity className='absolute z-50'>
-                <Image className='w-12 top-3 left-1 sticky' source={loginImages.backicon} />
+                <Image className='w-14 h-16 top-7 left-5 sticky' source={loginImages.backicon} />
             </TouchableOpacity>
             <ScrollView>
 
                 <View className='bg-white h-96'>
-                    <Image className='w-full h-full' source={loginImages.spiderMan} resizeMode='stretch' />
+                    <Image className='w-full h-full' source={loginImages.john} resizeMode='stretch' />
                     <View className='absolute w-full h-full'>
 
                         <TouchableOpacity className='w-16 h-16 rounded-full -bottom-8 right-2 absolute'>

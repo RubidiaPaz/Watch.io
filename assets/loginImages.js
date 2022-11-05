@@ -9,5 +9,8 @@ const loginImages = {
     videoplays: require("./loginImages/playicon.png"),
     search: require("./loginImages/search.png"),
     backicon: require("./loginImages/backicon.png"),
+    logoC: require("./loginImages/LogoC.png"),
+    john: require("./loginImages/john.png"),
+    adam: require("./loginImages/adam.png")
 }
    export default loginImages;

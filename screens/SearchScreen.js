@@ -7,7 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 const Data = [
     {
         id: '1',
-        image: loginImages.spiderMan
+        image: loginImages.john
     },
     {
         id: '2',
@@ -19,11 +19,11 @@ const Data = [
     },
     {
         id: '4',
-        image: loginImages.bladeRunner
+        image: loginImages.john
     },
     {
         id: '5',
-        image: loginImages.bladeRunner
+        image: loginImages.adam
     }
 ]
 
@@ -31,7 +31,7 @@ const Card = ({item}) => {
     return(
         <TouchableOpacity className='p-3 h-64 w-1/2'>
             <View>
-                <Image className='w-full h-full' source={item.image}/>
+                <Image className='w-full h-full rounded-2xl' source={item.image}/>
             </View>
         </TouchableOpacity>
     )
@@ -47,8 +47,8 @@ const SearchScreen = () => {
     }, []);
 
   return (
-    <SafeAreaView className='mt-5 w-full h-full bg-black'>
-        <View className='mt-5 bg-white opacity-20 flex flex-row rounded-xl'>
+    <SafeAreaView className='w-full h-full bg-[#171719] flex'>
+        <View className='mt-10 w-80 ml-10 bg-white opacity-10 flex-row rounded-3xl'>
             <Image className='w-8 h-8 m-1' source={loginImages.search} />
             <TextInput 
                 className='text-white text-xl w-full'
@@ -75,5 +75,6 @@ const SearchScreen = () => {
     </SafeAreaView>
   )
 }
+  
 
 export default SearchScreen

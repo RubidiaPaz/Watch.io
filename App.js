@@ -10,13 +10,16 @@ import ProfileScreen from './screens/ProfileScreen';
 import HomeScreen from './screens/HomeScreen';
 import SearchScreen from './screens/SearchScreen';
 import MovieDetails from './screens/MovieDetails';
+import Splash from './screens/Splash';
+import AdminPerfil from './screens/AdminPerfil';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
        
-      <Stack.Navigator initialRouteName='MovieDetails'>
+      <Stack.Navigator initialRouteName='Home'>
         {/* screens */}
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Inicio" component={LandingScreen} />
