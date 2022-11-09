@@ -10,17 +10,17 @@ import ListView from "../components/ListView";
 import checkSesion from "../validation/sesion.handler";
 import useFetchData from "../hook/use-fetch-data";
 
-const PeliculaScreen = ({ navigation }) => {
+const SeriesScreen = ({ navigation }) => {
   useEffect(() => {
     checkSesion(navigation);
   }, []);
 
   const { data, loading } = useFetchData(
-    "http://ec2-54-90-253-155.compute-1.amazonaws.com/api/movies"
+    "http://ec2-54-90-253-155.compute-1.amazonaws.com/api/series"
   );
-  const comedia = data.data?.splice(0, 3);
-  const accion = data.data?.splice(3, 6);
-  const romance = data.data?.splice(6, 9);
+  const comedia = data.data?.splice(0, 2);
+  const accion = data.data?.splice(4, 6);
+  const romance = data.data?.splice(6);
 
   return (
     <SafeAreaView className="flex  bg-white">
@@ -49,4 +49,4 @@ const PeliculaScreen = ({ navigation }) => {
   );
 };
 
-export default PeliculaScreen;
+export default SeriesScreen;
