@@ -40,8 +40,8 @@ const Splash = ({ navigation }) => {
         className=""
       >
         <Image
-          className="w-48 h-48 animate-pulse "
-          source={loginImages.LogoC}
+          className="ml-6 w-[200px] h-20 animate-pulse "
+          source={loginImages.logoC}
         />
   
       </Motion.View>

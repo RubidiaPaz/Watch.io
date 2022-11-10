@@ -34,7 +34,7 @@ const PeliculaScreen = ({ navigation }) => {
             <Text className="text-lg  font-semibold  mx-4 text-[#FFFFFF] mt-8">
               Comedia
             </Text>
-            <ListView data={data?.splice(0, 3)} />
+            <ListView data={data?.splice(0, 3)}/>
           </View>
           <View>
             <Text className="text-lg mt-4 font-semibold  mx-4 text-[#FFFFFF]">

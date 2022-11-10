@@ -7,8 +7,8 @@ const ListView = ({ data, setReference }) => {
         <Image
           className="w-full h-52 mb-2"
           source={{
-            uri: item.image,
-          }}
+            uri: item.image, 
+          }} 
         />
       </View>
     </TouchableOpacity>
