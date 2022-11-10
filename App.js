@@ -31,7 +31,7 @@ export default function App() {
         <Stack.Screen name="pago" component={PagoScreen} />
         <Stack.Screen name="pagoExitoso" component={PagoExitosoScreen} />
         <Stack.Screen name="SelecionDePlan" component={SelecionDePlan} />
-        <Stack.Screen name="Home" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="MovieDetails" component={MovieDetails} />
         <Stack.Screen name="PeliculasScreen" component={PeliculaScreen} />
