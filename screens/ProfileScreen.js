@@ -56,9 +56,9 @@ const ProfileScreen = ({ navigation }) => {
     });
   }, []);
 
-   useEffect(() => {
-     checkSesion(navigation);
-   }, []);
+  useEffect(() => {
+    checkSesion(navigation);
+  }, []);
   return (
     <SafeAreaView className="h-full w-full bg-[#171719]">
       <View className="items-center mt-10">
@@ -94,7 +94,12 @@ const ProfileScreen = ({ navigation }) => {
         </View>
 
         <View className="flex w-32">
-          <Text className="text-white font-semibold text-center capitalize ">
+          <Text
+            className="text-white font-semibold text-center capitalize "
+            onPress={() => {
+              navigation.navigate("PeliculasScreen");
+            }}
+          >
             Perfil: {authentication?.currentUser?.displayName}
           </Text>
         </View>
